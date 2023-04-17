@@ -24,7 +24,8 @@ The training data and validation data directories are defined along with paramet
     width_shift_range=0.1,
     height_shift_range=0.1,
     preprocessing_function=preprocess_input
-)```
+) 
+```
 
 Next, the train_generator and val_generator are defined using flow_from_directory() function pointing to the respective train and test directories.
 
@@ -36,7 +37,8 @@ Next, the train_generator and val_generator are defined using flow_from_director
 val_generator = gen.flow_from_directory(
     directory=val_data_dir,
     target_size=(img_size, img_size)
-)```
+)
+```
 
 
 ## Custom Metric Functions
@@ -60,7 +62,8 @@ def precision(y_true, y_pred):
 def f1(y_true, y_pred):
     precision_m = precision(y_true, y_pred)
     recall_m = recall(y_true, y_pred)
-    return 2*((precision_m*recall_m)/(precision_m+recall_m+K.epsilon()))```
+    return 2*((precision_m*recall_m)/(precision_m+recall_m+K.epsilon()))
+ ```
 
 ## Model Architecture and Compilation
 
@@ -78,12 +81,14 @@ x = Dense(39, activation="softmax")(x)
 
 model = Model(resnet50.input, x)
 
-model.compile(optimizer=Adam(learning_rate=0.00015), loss='categorical_crossentropy', metrics=['acc', f1, precision, recall])```
+model.compile(optimizer=Adam(learning_rate=0.00015), loss='categorical_crossentropy', metrics=['acc', f1, precision, recall])
+```
 
 Several callbacks are used during the training process to monitor and save the best model.
 
 ```checkpoint = ModelCheckpoint("resnet50_v1.h5", monitor='val_acc', verbose=1, save_best_only=True, save_weights_only=False, mode='auto', save_freq=1)
-early = EarlyStopping(monitor='val_acc', min_delta=0, patience=10, verbose=1, mode='auto')```
+early = EarlyStopping(monitor='val_acc', min_delta=0, patience=10, verbose=1, mode='auto')
+```
 
 ## Model Training and Evaluation
 
@@ -96,7 +101,8 @@ The model is then trained using fit() function over 20 epochs.
     validation_data=val_generator,
     validation_steps=25,
     callbacks = [checkpoint, early]
-)```
+)
+```
 
 After the training, the accuracy, loss, f1-score, precision and recall metrics are plotted using matplotlib.
 
@@ -108,7 +114,8 @@ plt.legend()
 plt.plot(model_history.history['val_loss'], label = 'validation loss')
 plt.plot(model_history.history['val_acc'], label = 'validation accuracy')
 plt.grid(True)
-plt.legend()```
+plt.legend()
+```
 
 ## Prediction on Test Images
 
@@ -143,6 +150,7 @@ from IPython.display import Image
 Image(filename='/content/drive/MyDrive/digital-farmer/tests/tomato_bacterial-spot.jpg', width=300, height=200)
 
 ans = get_prediction('tomato_bacterial-spot.jpg')
-ans```
+ans
+```
 
 The above code will output the predicted disease type of the given image.
