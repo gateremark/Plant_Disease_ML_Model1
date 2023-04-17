@@ -40,7 +40,7 @@ git clone https://github.com/gateremark/Plant_Disease_ML_Model1.git
 
 3. Update the `base_path`, `train_data_dir`, and `val_data_dir` variables in the script to point to the correct directories of the PlantVillage dataset.
 
-4. Open the script in Jupyter Notebook or Google Colab, and run the cells.
+4. Open the script in Google Colab, and run the cells.
 
 ## Results
 The trained ResNet50 model achieved an accuracy of ~95% after 20 epochs of training on the PlantVillage dataset. The model can be used to classify new input images of plants into their respective disease categories.
