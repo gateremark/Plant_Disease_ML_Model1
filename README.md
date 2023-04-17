@@ -11,7 +11,7 @@ This repository contains a Python script for fine-tuning the pre-trained ResNet5
 - [Credits](#credits)
 
 ## Overview
-The `resnet50_plant_disease_classification.py` script imports the necessary libraries for the task, including ResNet50 from Keras Applications. After mounting Google Drive to the Colab environment and unzipping the dataset, the script sets several parameters for data preprocessing and creates data generators for training and validation.
+The `pv_resnet50.ipynb` script imports the necessary libraries for the task, including ResNet50 from Keras Applications. After mounting Google Drive to the Colab environment and unzipping the dataset, the script sets several parameters for data preprocessing and creates data generators for training and validation.
 
 Next, the script defines custom metrics functions and modifies the fully connected layers of the pre-trained ResNet50 model to fit the number of classes in the PlantVillage dataset. The model is compiled and trained on the generator data, with callbacks to monitor early stopping and best models.
 
