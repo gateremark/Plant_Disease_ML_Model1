@@ -33,10 +33,10 @@ To run the script, follow these steps:
 
 1. Clone this repository.
 ```
-git clone https://github.com/username/resnet50-plant-disease-classification.git
+git clone https://github.com/gateremark/Plant_Disease_ML_Model1.git
 ```
 
-2. Download the PlantVillage dataset and place it in your Google Drive.
+2. Download the [PlantVillage](https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset) dataset and place it in your Google Drive.
 
 3. Update the `base_path`, `train_data_dir`, and `val_data_dir` variables in the script to point to the correct directories of the PlantVillage dataset.
 
